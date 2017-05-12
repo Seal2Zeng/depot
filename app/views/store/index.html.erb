@@ -3,6 +3,7 @@
 <h1>Your Pragmatic Catalog</h1>
 
 <% cache @products do %>
+    <%=@show_message%>
     <% @products.each do |product| %>
         <% cache product do %>
             <div class="entry">
@@ -10,7 +11,8 @@
                 <h3><%= product.title %></h3>
                 <%= sanitize(product.description) %>
                 <div class="price_line">
-                    <span class="price"><%= number_to_currency(product.price, locale: 'zh-CN') %></span>
+                    <span class="price"><%= number_to_currency(product.price) %></span>
+                    <%= button_to 'Add to Cart', line_items_path(product_id: product)%>
                 </div>
             </div>
         <% end %>
