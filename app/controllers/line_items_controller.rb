@@ -2,8 +2,8 @@ class LineItemsController < ApplicationController
   
   include CurrentCart
   
-  before_action :set_cart, only: [:create]
-  before_action :set_line_item, only: [:show, :edit, :update, :destroy]
+  before_action :set_cart, only: [:create, :decrease]
+  before_action :set_line_item, only: [:show, :edit, :update, :destroy, :increase, :decrease]
 
   # GET /line_items
   # GET /line_items.json
@@ -33,7 +33,8 @@ class LineItemsController < ApplicationController
     
     respond_to do |format|
       if @line_item.save
-        format.html { redirect_to @line_item.cart }
+        format.html { redirect_to store_index_url }
+        format.js { @current_item = @line_item }
         format.json { render :show, status: :created, location: @line_item }
       else
         format.html { render :new }
@@ -47,7 +48,7 @@ class LineItemsController < ApplicationController
   def update
     respond_to do |format|
       if @line_item.update(line_item_params)
-        format.html { redirect_to @line_item, notice: 'Line item was successfully updated.' }
+        format.html { redirect_to @line_item, notice: 'Purchase was successfully updated.' }
         format.json { render :show, status: :ok, location: @line_item }
       else
         format.html { render :edit }
@@ -59,11 +60,30 @@ class LineItemsController < ApplicationController
   # DELETE /line_items/1
   # DELETE /line_items/1.json
   def destroy
+    
     @line_item.destroy
     respond_to do |format|
-      format.html { redirect_to @line_item.cart, notice: 'Line item was successfully removed.' }
+      format.html { redirect_to store_index_url }
       format.json { head :no_content }
     end
+    
+  end
+  
+  def decrease
+    
+    @line_item = @cart.decrease(params[:id])
+   
+    respond_to do |format|
+      if @line_item.save
+        format.html { redirect_to store_index_url }
+        format.js { @current_item = @line_item }
+        format.json { head :ok }
+      else
+        format.html { render action: "edit"}
+        format.json { render json: @line_item.errors, status: :unprocessable_entity }
+      end
+    end
+  
   end
 
   private

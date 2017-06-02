@@ -1,4 +1,8 @@
 class StoreController < ApplicationController
+  
+  include CurrentCart
+  before_action :set_cart
+  
   def index
     @count = increment_counter
     @show_message = "You've been here #{@count} times" if @count > 5
