@@ -51,3 +51,7 @@ Product.create(title: 'Ruby Performance Optimization',
       </p>},
   image_url: 'adrpo.jpg',
   price: 46.00)
+
+PayType.create(name: 'CHECK')
+PayType.create(name: 'CREDIT_CARD')
+PayType.create(name: 'PURCHASE_ORDER')
