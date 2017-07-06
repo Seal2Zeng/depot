@@ -8,6 +8,10 @@ Rails.application.routes.draw do
   resources :line_items do
     post :decrease, on: :member
   end
+  
+  resources :orders do
+    post :ship, on: :member
+  end
 
   resources :products do
     get :who_bought, on: :member

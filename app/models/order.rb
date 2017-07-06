@@ -2,7 +2,6 @@ class Order < ApplicationRecord
     
     has_many :line_items, dependent: :destroy
     belongs_to :pay_type
-    include ActiveModel::Dirty
     
     #enum pay_type: {
     #    CHECK: 0, 

@@ -63,4 +63,18 @@ class UserStoriesTest < ActionDispatch::IntegrationTest
     end
   end
   
+  test "should mail the admin when error occurs" do
+    perform_enqueued_jobs do
+      get "/carts/wibble" 
+      assert_response :redirect  # should redirect to...
+      assert_redirected_to store_index_url       # ...store index
+
+
+      mail = ActionMailer::Base.deliveries.last
+      assert_equal ["846190988@qq.com"], mail.to  ## replace mail id
+      assert_equal "Depot Monitor <depot@example.com>", mail[:from].value  ## replace contact name/mail id
+      assert_equal "Depot Exception Warning", mail.subject
+    end
+  end
+  
 end
