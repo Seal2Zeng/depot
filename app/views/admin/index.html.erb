@@ -1,0 +1,5 @@
+<h1>Welcome</h1>
+
+It's <%= Time.now.localtime("+08:00").strftime("%Y-%m-%d %H:%M:%S") %>
+<hr/>
+We have <%= pluralize(@total_orders, "order")%>.
