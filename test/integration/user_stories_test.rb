@@ -77,4 +77,15 @@ class UserStoriesTest < ActionDispatch::IntegrationTest
     end
   end
   
+  test "should fail on access of sensitive data" do
+    
+    delete '/logout'
+    
+    get '/products'
+    follow_redirect!
+    assert_response :success
+    assert_equal '/login', path
+    
+  end
+  
 end
