@@ -29,7 +29,7 @@
 
   <div class="field">
     <%= f.label :pay_type_id, t('.pay_type') %>
-    <%= f.select :pay_type_id, PayType.all.collect{ |pt| [pt.name, pt.id] },
+    <%= f.select :pay_type_id, PayType.all.collect{ |pt| [t('.'+pt.name), pt.id] },
                           prompt: 'Select a payment method'%>
   </div>
 

@@ -20,7 +20,8 @@ Product.create(title: 'Rails, Angular, Postgres, and Bootstrap',
       environment.
       </p>},
   image_url: 'dcbang.jpg',    
-  price: 45.00)
+  price: 45.00,
+  locale: 'en')
 # . . .
 Product.create(title: 'Seven Mobile Apps in Seven Weeks',
   description:
@@ -33,7 +34,8 @@ Product.create(title: 'Seven Mobile Apps in Seven Weeks',
       out which cross-platform solution makes the most sense for your needs.
       </p>},
   image_url: '7apps.jpg',
-  price: 26.00)
+  price: 26.00,
+  locale: 'en')
 # . . .
 
 Product.create(title: 'Ruby Performance Optimization',
@@ -50,7 +52,8 @@ Product.create(title: 'Ruby Performance Optimization',
       will run orders of magnitude faster.
       </p>},
   image_url: 'adrpo.jpg',
-  price: 46.00)
+  price: 46.00,
+  locale: 'en')
 
 PayType.create(name: 'CHECK')
 PayType.create(name: 'CREDIT_CARD')

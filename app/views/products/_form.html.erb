@@ -30,6 +30,11 @@
     <%= form.label :price %>
     <%= form.text_field :price, id: :product_price %>
   </div>
+  
+  <div class="field">
+    <%= form.label :locale %>
+    <%= form.select :locale, LANGUAGES, :selected => I18n.locale %>
+  </div>
 
   <div class="actions">
     <%= form.submit %>

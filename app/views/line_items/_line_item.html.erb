@@ -5,11 +5,11 @@
 <% end %>
     <td><%= line_item.quantity %>&times;</td>
     <td><%= line_item.product.title %></td>
-    <td><%=  number_to_currency(line_item.product.price) %></td>
-    <td class="item_price"><%= number_to_currency(line_item.total_price) %></td>
+    <td><%=  number_to_currency(exchange_price(line_item.product.price, line_item.product.locale.to_sym, I18n.locale)) %></td>
+    <td class="item_price"><%= number_to_currency(exchange_price(line_item.total_price, line_item.product.locale.to_sym, I18n.locale)) %></td>
     <% if !@email %>
-    <td><%= button_to '+', line_items_path(product_id: line_item.product.id), method: :post, remote: true %></td>
-    <td><%= button_to '-', decrease_line_item_path(line_item.id), method: :post, remote: true %></td>
+    <td><%= button_to '+', line_items_path(product_id: line_item.product.id, locale: I18n.locale), method: :post, remote: true %></td>
+    <td><%= button_to '-', decrease_line_item_path(line_item.id, locale: I18n.locale), method: :post, remote: true %></td>
     <td><%= button_to 'x', line_item, method: :delete, data: { confirm: 'Are you sure?' }, remote: true %></td>
     <% end %>
 </tr>

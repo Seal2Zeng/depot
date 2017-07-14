@@ -6,7 +6,7 @@
     
     <tr class="total_line">
         <td colspan="3">Total:</td>
-        <td class="total_cell"><%= number_to_currency(cart.total_price) %></td>
+        <td class="total_cell"><%= number_to_currency(exchange_price(cart.total_price, cart.locale, I18n.locale)) %></td>
     </tr>
     
 </table>

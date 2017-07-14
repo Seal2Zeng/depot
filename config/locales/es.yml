@@ -46,11 +46,11 @@ es:
     number:
         currency:
             format:
-                unit: "$US"
+                unit: "€"
                 precision: 2
                 separator: ","
                 delimiter: "."
-                format: "%n&nbsp;%u"
+                format: "%u%n"
     
     orders:
         new:
@@ -63,3 +63,7 @@ es:
             pay_type:           "Forma de pago"
             pay_prompt_html:    "Seleccione un m&eacute;todo de pago"
             submit:             "Realizar Pedido"
+            CREDIT_CARD:        "Tarjeta De Crédito"
+            CHECK:              "Cheque"
+            PURCHASE_ORDER:     "Orden De Compra"
+            

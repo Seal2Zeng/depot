@@ -28,4 +28,12 @@ class Cart < ApplicationRecord
         end
     end
     
+    def locale
+        if line_items.empty?
+            :en
+        else
+            line_items.first.product.locale.to_sym
+        end
+    end
+    
 end

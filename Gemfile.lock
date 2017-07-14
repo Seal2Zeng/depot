@@ -67,6 +67,8 @@ GEM
     ffi (1.9.18)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
+    google_currency (3.3.0)
+      money (~> 6.7)
     i18n (0.8.1)
     jbuilder (2.6.4)
       activesupport (>= 3.0.0)
@@ -91,6 +93,10 @@ GEM
     mime-types-data (3.2016.0521)
     mini_portile2 (2.1.0)
     minitest (5.10.2)
+    monetize (1.7.0)
+      money (~> 6.9)
+    money (6.9.0)
+      i18n (>= 0.6.4, < 0.9)
     multi_json (1.12.1)
     mysql2 (0.4.6)
     nio4r (2.0.0)
@@ -188,10 +194,12 @@ DEPENDENCIES
   byebug
   capybara (~> 2.13.0)
   coffee-rails (~> 4.2)
+  google_currency
   jbuilder (~> 2.5)
   jquery-rails
   jquery-ui-rails
   listen (>= 3.0.5, < 3.2)
+  monetize
   mysql2 (~> 0.4.0)
   puma (~> 3.7)
   rails (~> 5.1.0)
